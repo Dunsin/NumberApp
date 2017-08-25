@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ask a Question</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<h4>Please select a category for available tutors.</h4>
+
+ <ion-list>
+    <button ion-item *ngFor="let topic of topics | async"  (click)="listtutors(topic)">
+          {{topic.title}}
+    </button>
+  </ion-list>
+    
+ </ion-content>

@@ -1,0 +1,38 @@
+<!--
+  Generated template for the BuycreditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Buy Credit</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<h3> Please click on the amount of credit you will like to buy</h3>
+<p>{{ newvalue }}</p>
+
+<button ion-button round color="secondary" (click)="add5()"> 
+         5 points 
+        </button>
+<button ion-button round color="secondary" (click)="add10()">
+         10 points 
+        </button>
+<button ion-button round color="secondary" (click)="add15()">
+         15 points 
+        </button>
+<button ion-button round color="secondary" (click)="add20()">
+         20 points 
+        </button>
+
+<p>{{ credit }}</p>
+
+</ion-content>

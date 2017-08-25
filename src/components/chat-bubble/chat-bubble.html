@@ -1,0 +1,21 @@
+<!-- Generated template for the ChatBubbleComponent component -->
+<div class="chatBubble">
+        
+    <div *ngIf="msg.body" class="chat-bubble {{msg.isMe === true ? 'right' : 'left'}}">
+	
+          <div class="message">{{msg.body}}</div>
+		  <div class="message-detail">
+              <span>{{msg.timestamp| date: "HH:mm"}}</span>
+          </div>
+		  
+    </div>
+		
+    <div *ngIf="msg.img" class="chat-bubble-img  {{msg.isMe === true ? 'right' : 'left'}}">
+         <img src="{{msg.img}}"/> 
+          <div class="message-detail-img">
+              <span>{{msg.timestamp| date:"MMM DD, YYYY HH:mm"}}</span>
+          </div>
+    </div>
+	
+</div>
+

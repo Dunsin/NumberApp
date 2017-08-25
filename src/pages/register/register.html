@@ -1,0 +1,94 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<h2>Register</h2>
+  <form [formGroup]="registerForm" (submit)="doRegister()" novalidate>
+  
+  <ion-item>
+      <ion-input #fullname formControlName="fullname" type="text" placeholder="Your Full Name"
+        [class.invalid]="!registerForm.controls.fullname.valid && (fullnameChanged || submitAttempt)"></ion-input>
+    </ion-item>
+	
+	 <ion-item class="error-message" *ngIf="!registerForm.controls.fullname.valid  && (fullnameChanged || submitAttempt)">
+      <p>Your full name can't empty.</p>
+    </ion-item>
+	
+	<ion-item>
+       <ion-input #age formControlName="age" type="number" placeholder="Your Age"
+        [class.invalid]="!registerForm.controls.age.valid && (ageChanged || submitAttempt)"></ion-input>
+    </ion-item>
+	
+	 <ion-item class="error-message" *ngIf="!registerForm.controls.age.valid  && (ageChanged || submitAttempt)">
+      <p>Please enter your age as digits.</p>
+    </ion-item>
+	
+	<ion-item>
+      <ion-select #year formControlName="year" [selectOptions]="yearSelection" placeholder="Your Year" [class.invalid]="!registerForm.controls.year.valid">
+		<ion-option value="year 1">Year 1</ion-option>
+        <ion-option value="year 2">Year 2</ion-option>
+        <ion-option value="year 3">Year 3</ion-option>
+		<ion-option value="year 4">Year 4</ion-option>
+        <ion-option value="year 5">Year 5</ion-option>
+        <ion-option value="year 6">Year 6</ion-option>
+	  </ion-select>
+	</ion-item>
+	
+	<ion-item class="error-message" *ngIf="!registerForm.controls.year.valid">
+      <p>Please select your Class.</p>
+    </ion-item>
+	
+	 <ion-item>
+	  <ion-select #schoolname formControlName="schoolname" [selectOptions]="schoolSelection" placeholder="Name of School" [class.invalid]="!registerForm.controls.schoolname.valid">
+	  	<ion-option value="Girls High School">Girl's High School</ion-option>
+        <ion-option value="Amersham Girls School">Amersham Girls School</ion-option>
+        <ion-option value="All saints Primary School">All Saints Primary School</ion-option>
+        <ion-option value="St Mary Primary School">St Mary's Girls School</ion-option>
+        <ion-option value="Colchester Primary School">Colchester Primary School</ion-option>
+        <ion-option value="Stanway Primary School">Stanway Primary School</ion-option>
+      </ion-select>
+	  
+	</ion-item>
+	
+	<ion-item class="error-message" *ngIf="!registerForm.controls.schoolname.valid">
+      <p>Please enter a valid school Name.</p>
+    </ion-item>
+		
+	<ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input #email formControlName="email" type="email" placeholder="Your email address"
+        [class.invalid]="!registerForm.controls.email.valid &&(emailChanged || submitAttempt)"></ion-input>
+    </ion-item>
+	
+    <ion-item class="error-message" *ngIf="!registerForm.controls.email.valid && (emailChanged || submitAttempt)">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+	
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input #password formControlName="password" type="password" placeholder="Your password"
+        [class.invalid]="!registerForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+    </ion-item>
+	
+    <ion-item class="error-message" *ngIf="!registerForm.controls.password.valid && (passwordChanged || submitAttempt)">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+	
+	<button ion-button block type="submit">
+      Register
+    </button>
+			
+  </form>
+  
+  <button ion-button full (click)="gotoLogin()">
+	Already Registered? Login
+	</button>
+  
+</ion-content>
